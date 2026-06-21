@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title != 'undefined' ? title : 'The Royals' %></title>
+    
+    <!-- Title Image (Favicon) -->
+    <link rel="icon" type="image/png" href="/images/mainlogoremovebg.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        royal: {
+                            red: '#dc2626',
+                            redHover: '#b91c1c',
+                            dark: '#111827',
+                            light: '#fffbeb',
+                            text: '#374151'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-royal-light font-sans text-royal-text antialiased relative z-0">
+
+    <!-- Transparent Background Watermark -->
+    <div class="fixed inset-0 z-[-1] flex items-center justify-center pointer-events-none overflow-hidden">
+        <img src="/images/mainlogoremovebg.png" alt="The Royals Watermark" class="w-[90%] md:w-[60%] lg:w-[40%] object-contain opacity-10">
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3">
+                        <img class="h-12 w-auto" src="/images/mainlogo.png" alt="The Royals Logo">
+                        <div>
+                            <h1 class="font-serif font-bold text-2xl text-royal-dark leading-none">The Royals</h1>
+                            <span class="text-xs italic text-stone-500">be royal, live royal</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-stone-700 hover:text-royal-red font-medium transition-colors">Home</a>
+                    <a href="/menu" class="text-stone-700 hover:text-royal-red font-medium transition-colors">Menu</a>
+                    <a href="/#about" class="text-stone-700 hover:text-royal-red font-medium transition-colors">About Us</a>
+                    <a href="/#booking" class="bg-royal-red hover:bg-royal-redHover text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg">Book a Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>

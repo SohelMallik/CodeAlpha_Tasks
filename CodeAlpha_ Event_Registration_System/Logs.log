@@ -1,0 +1,88 @@
+Abbreviations:
+- DAO: Data Access Object
+- CRUD: Create Read Update Delete
+
+11/18/2023:
+- Setup MySQL database [used Xampp]
+- Create db named "event_registration_system"
+- Create 2 tables, respectively: "users", "events"
+- Table contents can be changed later
+- Add basic login-register page theme to test database actions
+
+11/25/2023:
+- Created: UserDAO, LoginServlet, DatabaseConnection classes
+- WARNING: UserDAO might have vulnerabilty for SQL Injection [Marked in file]
+    - Removed the mark since PreparedStatements cannot exploited by SQL Injection [12/01/2023]
+- Project has debug-prints in DatabaseConnection and LoginServlet
+- Currently it fails to connect to database even after add `mysql-connector.jar`.
+
+12/01/2023:
+- Fix login bugs
+- Solved mysql-connector error by removing password argument
+- Removed mysql-connector module [lib directory] and added using `pom.xml`
+- Change main package name: ers -> event_registration_system 
+
+12/01/2023:
+- Add RegisterServlet and registration functionality
+- Update UserDAO [Add `registerUser()`]
+- Currently register doesn't checks for already created users
+
+12/02/2023:
+- Add username and email check for new registration [Prevents double registration]
+- Add uniqueId column to users table and use "SHA-256" hash for each creation
+
+12/03/2023:
+- Start developing EventCreation
+- Create CreateEventServlet and EventDAO
+- Create Event directory for register new event forms [temporary form]
+- Update UniqueIdGenerator [Override function for one argument] 
+- Create User-Event classes
+- Add EventCreation error messages
+- Finish developing EventCreation [Works with userID]
+
+12/04/2023:
+- Start working on page designs.
+- Add Header directory and header design [Can be updated later]
+- Add MyEvents and MyEvents css-js files
+
+12/05/2023:
+- Fix minor bugs and Clean the code
+- Start developing association table
+
+12/06/2023:
+- Finish developing association table
+- Add association table related functions [Can be updated]
+
+12/07/2023:
+-- Night
+- Refactor entire OOP implementation
+- Redesign events table to add missing columns [Events: location, maxParticipant]
+- Implement encapsulation to all classes [User, Event]
+- Refactor all Servlets and DAOs to use class objects properly
+- Add user-friendly comment lines for each operation
+- Clean the code
+-- Day
+- Add and Refactor DAOs for CRUD operations
+- Add UserEventsDAO to seperate related table operations from EventDAO
+
+12/08/2023:
+- Start putting web pages together
+-- Add following:
+- Account directory -> updateAccount, logOut jsp pages
+- Pages directory -> pages functionality to import page numbers html
+- Images directory -> Images which will serve as a stroge for all images
+-- Update following:
+- Folder structure -> create css and js directories for each directory
+- File imports -> change imports paths to import from Context Path
+- Header -> finish the header hyperlinks and data [Design can be updated]
+-- Remove following:
+- EventCreation -> updated to new design and named EventCreation
+
+12/08/2023:
+- Start displaying the database information on the pages.
+-- Add following pages:
+- logOut, EventPage
+-- Work on following pages:
+- Events, MyEvents, EventPage
+
+![Note]: Couldn't keep logs after that point due deadline, checkout commit messages for further details
